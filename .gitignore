@@ -1,0 +1,8 @@
+# Tüm .env dosyalarını (veritabanı şifreleri) yoksay
+**/.env
+
+# Tüm node_modules klasörlerini (kütüphaneler) yoksay
+**/node_modules
+
+# macOS sistem dosyaları
+.DS_Store

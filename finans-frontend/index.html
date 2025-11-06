@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finans Takipçisi | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+    <div id="toastContainer"></div>
+    <div class="container">
+        
+        <div id="loginAlani" class="auth-card">
+            <h2>Giriş Yap</h2>
+            <form id="loginForm">
+                <div class="form-grup"><label for="loginEmail">Email</label><input type="email" id="loginEmail" placeholder="Email adresiniz" required></div>
+                <div class="form-grup"><label for="loginPassword">Şifre</label><input type="password" id="loginPassword" placeholder="Şifreniz" required></div>
+                <button type="submit" class="btn-primary">Giriş Yap</button>
+            </form>
+            <p class="form-footer-link" id="kayitLinkGecis">Hesabınız yok mu? Kayıt Olun</p>
+        </div>
+        <div id="registerAlani" class="auth-card" style="display: none;">
+            <h2>Kayıt Ol</h2>
+            <form id="registerForm">
+                <div class="form-grup"><label for="registerFirstName">İsim</label><input type="text" id="registerFirstName" placeholder="İsminiz" required></div>
+                <div class="form-grup"><label for="registerLastName">Soyisim</label><input type="text" id="registerLastName" placeholder="Soyisminiz" required></div>
+                <div class="form-grup"><label for="registerEmail">Email</label><input type="email" id="registerEmail" placeholder="Email adresiniz" required></div>
+                <div class="form-grup"><label for="registerPassword">Şifre</label><input type="password" id="registerPassword" placeholder="Yeni şifreniz" required></div>
+                <button type="submit" class="btn-primary">Kayıt Ol</button>
+            </form>
+            <p class="form-footer-link" id="girisLinkGecis-1">Zaten hesabınız var mı? Giriş Yapın</p>
+        </div>
+
+        <div id="anaEkran" style="display: none;">
+            <header class="dashboard-header">
+                <h1 id="hosgeldinMesaji">Yükleniyor...</h1>
+                <div class="header-buttons">
+                    <button id="profileButton" class="btn-secondary">Profilim</button>
+                    <button id="logoutButton" class="btn-secondary btn-danger-hover">Çıkış Yap</button>
+                </div>
+            </header>
+            
+            <div class="card filter-card">
+                <div class="form-grup"><label for="filterStartDate">Başlangıç Tarihi</label><input type="date" id="filterStartDate"></div>
+                <div class="form-grup"><label for="filterEndDate">Bitiş Tarihi</label><input type="date" id="filterEndDate"></div>
+                <button id="filterButton" class="btn-primary">Filtrele</button>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card gelir-card"><h3>Toplam Gelir</h3><p id="raporGelir">0.00 TL</p></div>
+                <div class="stat-card gider-card"><h3>Toplam Gider</h3><p id="raporGider">0.00 TL</p></div>
+                <div class="stat-card bakiye-card"><h3>Net Bakiye</h3><p id="raporBakiye">0.00 TL</p></div>
+            </div>
+            <div class="dashboard-layout">
+                <div class="col-1"><div class="card"><h3>Kategoriler</h3><form id="kategoriEkleForm">...</form><table id="kategoriListesi">...</table></div></div>
+                <div class="col-2"><div class="card"><h3>Finansal İşlemler</h3><form id="islemEkleForm">...</form><table id="islemListesi">...</table></div></div>
+            </div>
+        </div>
+        
+        <div id="editModal" class="modal-content-wrapper">
+            <div class="modal-content">
+                <span class="modal-close" id="modalClose">&times;</span>
+                <h3 id="modalTitle">Kaydı Düzenle</h3>
+                <form id="editForm">
+                    <div id="editFormBody"></div>
+                    <button type="submit" class="btn-primary">Güncelle</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="profileModal" class="modal-content-wrapper">
+            <div class="modal-content">
+                <span class="modal-close" id="profileModalClose">&times;</span>
+                
+                <h3 id="profileModalTitle">Profil Bilgileri</h3>
+                <form id="profileForm">
+                    <div class="form-grup">
+                        <label for="profileFirstName">İsim</label>
+                        <input type="text" id="profileFirstName" required>
+                    </div>
+                    <div class="form-grup">
+                        <label for="profileLastName">Soyisim</label>
+                        <input type="text" id="profileLastName" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Bilgileri Güncelle</button>
+                </form>
+
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 30px 0;">
+
+                <h3>Şifre Değiştir</h3>
+                <form id="passwordForm">
+                    <div class="form-grup">
+                        <label for="oldPassword">Mevcut Şifre</label>
+                        <input type="password" id="oldPassword" placeholder="Mevcut şifreniz" required>
+                    </div>
+                    <div class="form-grup">
+                        <label for="newPassword">Yeni Şifre</label>
+                        <input type="password" id="newPassword" placeholder="Yeni şifreniz" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Şifreyi Güncelle</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="script.js?v=4" defer></script>
+</body>
+</html>

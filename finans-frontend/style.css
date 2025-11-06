@@ -1,0 +1,292 @@
+/* style.css (v2 - Pro, Büyük ve Ferah Tasarım) */
+
+:root {
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --warning-hover: #e0a800;
+    --light-bg: #f7f8fc; /* Daha yumuşak bir arkaplan */
+    --text-color: #212529;
+    --text-muted: #6c757d;
+    --border-color: #e9ecef; /* Daha açık border */
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    --card-radius: 16px; /* Daha yuvarlak köşeler */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+    /* YENİ: Profesyonel 'Inter' fontu */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    background: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    /* YENİ: İsteğiniz üzerine ana yazı tipi boyutu 18px'e çıkarıldı */
+    font-size: 18px; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+.form-footer-link {
+    text-align: center;
+    margin-top: 25px; /* Formdan biraz ayır */
+    font-size: 1rem; /* Ana metinle aynı boyutta */
+    color: var(--primary-color); /* Ana Mavi Renk */
+    text-decoration: underline; /* Altı Çizili */
+    cursor: pointer; /* Üzerine gelince "el" işareti */
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.form-footer-link:hover {
+    color: var(--primary-hover); /* Üzerine gelince koyu mavi */
+}
+/* --- GİRİŞ/KAYIT EKRANI --- */
+.auth-card {
+    background: #fff;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    padding: 40px; /* YENİ: Daha ferah */
+    max-width: 450px;
+    margin: 50px auto;
+    animation: fadeIn 0.5s ease-out;
+}
+.auth-card h2 {
+    font-size: 2.5rem; /* YENİ: Büyütüldü */
+    font-weight: 800;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* --- ANA DASHBOARD --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.dashboard-header h1 {
+    font-size: 2.8rem; /* YENİ: Büyütüldü */
+    font-weight: 800;
+    text-align: left;
+    margin: 0;
+}
+
+.card {
+    background: #fff;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 25px;
+    padding: 30px; /* YENİ: Büyütüldü */
+    animation: fadeIn 0.5s ease-out;
+}
+
+h3 {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.6rem; /* YENİ: Büyütüldü */
+    font-weight: 700;
+}
+
+/* --- YENİ: İstatistik Kartları (Rapor) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 25px;
+}
+.stat-card {
+    background: #fff;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    padding: 25px;
+    animation: fadeIn 0.5s ease-out;
+}
+.stat-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem; /* YENİ: Büyütüldü (18px * 1.1) */
+    font-weight: 600;
+    color: var(--text-muted);
+    border-bottom: none;
+}
+.stat-card p {
+    margin: 0;
+    font-size: 2.5rem; /* YENİ: Büyütüldü */
+    font-weight: 700;
+}
+.stat-card.gelir-card p { color: var(--success-color); }
+.stat-card.gider-card p { color: var(--danger-color); }
+.stat-card.bakiye-card p { color: var(--text-color); }
+
+
+.form-grup { margin-bottom: 20px; }
+.form-grup label { display: block; margin-bottom: 8px; font-weight: 600; }
+.form-grup input, .form-grup select {
+    width: calc(100% - 32px); /* YENİ: Padding'e göre ayarlandı */
+    padding: 16px; /* YENİ: Büyütüldü */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-grup input:focus, .form-grup select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+button.btn-primary {
+    width: 100%;
+    padding: 16px 20px; /* YENİ: Büyütüldü */
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem; /* YENİ: Büyütüldü */
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+button.btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+button:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
+
+button.btn-secondary { /* Çıkış butonu için */
+    background: #fff;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    width: auto;
+    margin: 0;
+    transition: all 0.2s ease;
+}
+button.btn-secondary:hover { background: var(--light-bg); transform: none; }
+
+.btn-grup { display: flex; gap: 8px; }
+
+button.btn-sm {
+    padding: 8px 14px; /* YENİ: Büyütüldü */
+    font-size: 15px; /* YENİ: Büyütüldü */
+    width: auto;
+    margin: 0;
+    font-weight: 500;
+    border-radius: 6px;
+}
+button.btn-edit { background: var(--warning-color); color: #000; }
+button.btn-edit:hover { background: var(--warning-hover); transform: none; }
+button.btn-delete { background: var(--danger-color); color: #fff; }
+button.btn-delete:hover { background: #c82333; transform: none; }
+button.btn-delete:disabled { background: #fd8e99; cursor: not-allowed; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td {
+    text-align: left;
+    padding: 16px; /* YENİ: Büyütüldü */
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+th { background: #fdfdfd; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); }
+
+.dashboard-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 25px; }
+
+/* --- BİLDİRİMLER (Toast) --- */
+#toastContainer { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
+.toast {
+    padding: 16px 22px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: #fff;
+    font-weight: 600;
+    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+    min-width: 300px;
+    font-size: 16px;
+}
+.toast.success { background: var(--success-color); }
+.toast.error { background: var(--danger-color); }
+@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* --- GÜNCELLEME (Modal) --- */
+#editModal { display: none; position: fixed; z-index: 500; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); }
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 550px;
+    border-radius: var(--card-radius);
+    animation: fadeIn 0.3s;
+}
+.modal-close { color: #aaa; float: right; font-size: 30px; font-weight: bold; cursor: pointer; line-height: 1; }
+.modal-close:hover { color: #000; }
+
+/* --- RESPONSIVE TASARIM --- */
+@media (max-width: 992px) {
+    .dashboard-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    body { font-size: 16px; }
+    .dashboard-header { flex-direction: column; gap: 15px; }
+    .stats-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2.2rem; }
+    .modal-content { margin: 20% auto; width: 90%; }
+}
+/* style.css (En sona ekleyin) */
+
+/* --- YENİ: Filtre Kartı Stilleri --- */
+.filter-card {
+    display: flex;
+    flex-wrap: wrap; /* Mobilde alt alta düşsün */
+    gap: 20px;
+    align-items: flex-end; /* Etiketleri ve butonları hizalar */
+}
+.filter-card .form-grup {
+    flex: 1; /* Eşit yer kapla */
+    min-width: 200px;
+    margin-bottom: 0;
+}
+.filter-card button {
+    flex-basis: 150px; /* Butonun temel genişliği */
+    margin-top: 0;
+    padding-top: 14px; /* Input'larla aynı yükseklik için ince ayar */
+    padding-bottom: 14px;
+}
+/* style.css (En sona ekleyin) */
+
+/* --- YENİ: Header Butonları (Profilim/Çıkış) --- */
+.dashboard-header {
+    display: flex;
+    flex-wrap: wrap; /* Mobilde alt alta düşsün */
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Butonlar ve başlık arası boşluk */
+    margin-bottom: 30px;
+}
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+.header-buttons .btn-secondary {
+    width: auto;
+    margin: 0;
+}
+.btn-secondary.btn-danger-hover:hover {
+    background: var(--danger-color);
+    border-color: var(--danger-color);
+    color: #fff;
+    transform: none;
+}
